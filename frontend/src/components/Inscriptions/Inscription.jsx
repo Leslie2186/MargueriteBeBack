@@ -1,13 +1,33 @@
-import React from "react";
+// import { useLoaderData } from "react-router-dom";
+import axios from "axios";
+import React, { useState } from "react";
 import logo from "../../assets/formulaire.jpg";
 import "./Inscription.css";
 
 function Inscription() {
+  const [image, setImage] = useState();
+  const handleUpload = async (e) => {
+    e.preventDefault();
+
+    const form = new FormData();
+    form.append("image", image);
+
+    try {
+      const file = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/candidat`,
+        form,
+        { headers: { "Content Type": "multipart/form-data" } }
+      );
+      console.info(file);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div>
       <img className="concept_img" src={logo} alt="L'Oréal" />
       <div className="Inscription">
-        <form className="Inscriptionform">
+        <form onSubmit={handleUpload} className="Inscriptionform">
           <input
             className="classinput"
             type="text"
@@ -66,7 +86,9 @@ function Inscription() {
           />
           <input
             className="classtextarea"
-            type="text"
+            type="file"
+            accept="image/png, image/jpeg"
+            onChange={(e) => setImage(e.target.files[0])}
             name="textarea"
             placeholder="TA PHOTOGRAPHIE"
             required
