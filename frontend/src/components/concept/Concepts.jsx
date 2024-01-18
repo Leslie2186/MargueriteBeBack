@@ -1,11 +1,9 @@
 import React from "react";
-import logo from "../../assets/concept.jpg";
 import "./Concept.css";
 
 function Concepts() {
   return (
     <div className="Concept">
-      <img className="concept_img" src={logo} alt="L'Oréal" />
       <div className="contain-text">
         <h3 className="concept_evmt">Concept de l'évènement</h3>
         <p className="paragraphe">

@@ -14,9 +14,6 @@ function Navbar() {
         <Link to="/histoire">
           <p className="nav_p">Histoire </p>
         </Link>
-        <Link to="/concept">
-          <p className="nav_p">Concept </p>
-        </Link>
         <Link to="/candidats">
           <p className="nav_p">Candidats </p>
         </Link>
