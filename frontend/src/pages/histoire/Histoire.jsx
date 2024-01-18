@@ -9,7 +9,7 @@ function Histoire() {
         <img src={backgroundHistoire} alt="Décore de fond Histoire" />
       </div>
       <h3>Les origines de L'Oréal</h3>
-      <div>
+      <div className="text-histoire">
         <p>
           L’Oréal est un groupe <strong>industriel</strong> français de produits{" "}
           <strong>cosmétiques</strong>. La société, créée par{" "}

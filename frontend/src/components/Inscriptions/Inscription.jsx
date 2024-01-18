@@ -71,9 +71,11 @@ function Inscription() {
             placeholder="TA PHOTOGRAPHIE"
             required
           />
-          <button type="submit" className="classbut">
-            ENVOYER
-          </button>
+          <div className="containbutsubmit">
+            <button type="submit" className="classbut">
+              ENVOYER
+            </button>
+          </div>
         </form>
       </div>
     </div>

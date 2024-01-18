@@ -13,10 +13,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-right: 40px;
 }
 
 .footer img {
-  width: 50px;
+  width: 35px;
 }
 
 .timer {
@@ -27,4 +28,15 @@
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
+  width: 140px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer img {
+    width: 50px;
+  }
+
+  .timer {
+    width: 300px;
+  }
 }
