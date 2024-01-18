@@ -17,6 +17,10 @@ function Concepts() {
           <br />
           Tu n’es plus qu'à un clic de la consécration et L’Oréal te veut bien.
         </p>
+        <p className="paragraphe">
+          Un final sublimé par la présence de notre guest et égerie : Eva
+          Longoria
+        </p>
       </div>
     </div>
   );
