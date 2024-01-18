@@ -17,7 +17,7 @@ function Navbar() {
         <Link to="/concept">
           <p className="nav_p">Concept </p>
         </Link>
-        <Link to="/candidats">
+        <Link to="/candidates">
           <p className="nav_p">Candidats </p>
         </Link>
         <Link to="/votes">
