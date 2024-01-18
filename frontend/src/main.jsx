@@ -10,6 +10,7 @@ import PageInscription from "./pages/PageInscription";
 import Home from "./pages/home/Home";
 import CardsId from "./pages/CardsId/CardsId";
 import Admin from "./pages/Admin/Admin";
+import Eva from "./components/Eva/Eva";
 import CardsAll from "./pages/CardsAll/CardsAll";
 
 const router = createBrowserRouter([
@@ -25,7 +26,10 @@ const router = createBrowserRouter([
         path: "/histoire",
         element: <Histoire />,
       },
-
+      {
+        path: "/guest",
+        element: <Eva />,
+      },
       {
         path: "/candidates",
         element: <CardsAll />,

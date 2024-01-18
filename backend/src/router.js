@@ -1,6 +1,20 @@
 const express = require("express");
 
 const router = express.Router();
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination(req, file, callback) {
+    callback(null, "public/assets/images");
+  },
+  filename(req, file, callback) {
+    callback(null, "monfichier.jpg");
+  },
+});
+
+const upload = multer({
+  storage,
+});
 
 // Define Your API Routes Here
 
@@ -8,7 +22,6 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 const authControllers = require("./controllers/authControllers");
 const candidatControllers = require("./controllers/candidatControllers");
-
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
 
@@ -18,6 +31,7 @@ router.get("/items/:id", itemControllers.read);
 // Route to add a new item
 router.post("/items", itemControllers.add);
 router.post("/login", authControllers.log);
+router.post("/candidat", upload.single("image"), candidatControllers.add);
 
 router.get("/candidats", candidatControllers.browse);
 router.get("/candidats/:id", candidatControllers.read);
