@@ -8,11 +8,10 @@ function Inscription() {
     nom: "",
     prenom: "",
     age: "",
+    mail: "",
     region: "",
     adresseSalon: "",
-    email: "",
     password: "",
-    photo: null,
   });
 
   const handleInputChange = (e) => {
@@ -21,19 +20,23 @@ function Inscription() {
   };
 
   const handleImageChange = (e) => {
-    setFormData({ ...formData, photo: e.target.files[0] });
+    setFormData({ ...formData, image: e.target.files[0] });
   };
 
   const handleUpload = async (e) => {
     e.preventDefault();
 
-    // const form = new FormData();
-    // form.append("image", formData.photo);
+    const form = new FormData();
+    for (const key in formData) {
+      if (Object.prototype.hasOwnProperty.call(formData, key)) {
+        form.append(key, formData[key]);
+      }
+    }
 
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/candidats`,
-        formData,
+        form,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
 
@@ -78,6 +81,15 @@ function Inscription() {
           <input
             className="classinput"
             type="text"
+            name="mail"
+            placeholder="MAIL"
+            value={formData.mail}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            className="classinput"
+            type="text"
             name="region"
             placeholder="REGION"
             value={formData.region}
@@ -96,18 +108,8 @@ function Inscription() {
           <input
             className="classinput"
             type="text"
-            name="email"
-            placeholder="MAIL"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-          />
-
-          <input
-            className="classinput"
-            type="text"
             name="password"
-            placeholder="MOT DE PASSE"
+            placeholder="MOTS DE PASSE"
             value={formData.password}
             onChange={handleInputChange}
             required
