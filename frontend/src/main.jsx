@@ -64,7 +64,7 @@ const router = createBrowserRouter([
     element: <CardsAll />,
     loader: () => {
       return connexion
-        .get("/Candidats")
+        .get("/retenu")
         .then((response) => response.data)
         .catch((err) => console.error(err));
     },
