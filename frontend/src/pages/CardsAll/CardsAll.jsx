@@ -5,7 +5,7 @@ import "./CardsAll.css";
 function CardsAll() {
   return (
     <div className="ContainerCardsAll">
-      <DisplayCards basePath="/candidats" />
+      <DisplayCards />
     </div>
   );
 }

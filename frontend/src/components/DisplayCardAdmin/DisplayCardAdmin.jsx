@@ -9,7 +9,17 @@ function DisplayCardAdmin({ basePath }) {
   return (
     <div className="DisplayCards">
       {items.map((item) => (
-        <CardItemAdmin key={item.id} data={item} basePath={basePath} />
+        <div>
+          <CardItemAdmin key={item.id} data={item} basePath={basePath} />
+          <div className="button">
+            <button type="button" className="greenButton">
+              Acceptée
+            </button>
+            <button type="button" className="redButton">
+              Refusée
+            </button>
+          </div>
+        </div>
       ))}
     </div>
   );

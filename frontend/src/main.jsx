@@ -3,16 +3,15 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import connexion from "./services/connexion";
 import App from "./App";
-import Candidats from "./pages/Candidats";
 import Histoire from "./pages/histoire/Histoire";
 import Votes from "./pages/Votes";
 import Login from "./pages/login/Login";
 import PageInscription from "./pages/PageInscription";
-import CardsAll from "./pages/CardsAll/CardsAll";
 import Home from "./pages/home/Home";
 import CardsId from "./pages/CardsId/CardsId";
 import Admin from "./pages/Admin/Admin";
 import Eva from "./components/Eva/Eva";
+import CardsAll from "./pages/CardsAll/CardsAll";
 
 const router = createBrowserRouter([
   {
@@ -28,12 +27,29 @@ const router = createBrowserRouter([
         element: <Histoire />,
       },
       {
+
         path: "/guest",
         element: <Eva />,
       },
       {
-        path: "/candidats",
-        element: <Candidats />,
+        path: "/candidates",
+        element: <CardsAll />,
+        loader: () => {
+          return connexion
+            .get("/retenu")
+            .then((response) => response.data)
+            .catch((err) => console.error(err));
+        },
+      },
+      {
+        path: "/candidates/:id",
+        element: <CardsId />,
+        loader: ({ params }) => {
+          return connexion
+            .get(`/Candidats/${params.id}`)
+            .then((response) => response.data)
+            .catch((err) => console.error(err));
+        },
       },
       {
         path: "/votes",
@@ -47,37 +63,17 @@ const router = createBrowserRouter([
         path: "/signin",
         element: <PageInscription />,
       },
+      {
+        path: "/admin",
+        element: <Admin />,
+        loader: () => {
+          return connexion
+            .get("/Candidats")
+            .then((response) => response.data)
+            .catch((err) => console.error(err));
+        },
+      },
     ],
-  },
-  {
-    path: "/admin",
-    element: <Admin />,
-    loader: () => {
-      return connexion
-        .get("/Candidats")
-        .then((response) => response.data)
-        .catch((err) => console.error(err));
-    },
-  },
-  {
-    path: "/candidates",
-    element: <CardsAll />,
-    loader: () => {
-      return connexion
-        .get("/Candidats")
-        .then((response) => response.data)
-        .catch((err) => console.error(err));
-    },
-  },
-  {
-    path: "/candidates/:id",
-    element: <CardsId />,
-    loader: ({ params }) => {
-      return connexion
-        .get(`/Candidats/${params.id}`)
-        .then((response) => response.data)
-        .catch((err) => console.error(err));
-    },
   },
 ]);
 
