@@ -17,9 +17,7 @@ const upload = multer({
 });
 // ({ dest: "images/" });
 
-/* ************************************************************************* */
 // Define Your API Routes Here
-/* ************************************************************************* */
 
 // Import itemControllers module for handling item-related operations
 const itemControllers = require("./controllers/itemControllers");
@@ -36,9 +34,11 @@ router.post("/items", itemControllers.add);
 router.post("/login", authControllers.log);
 router.post("/candidat", upload.single("image"), candidatControllers.add);
 
-/* ************************************************************************* */
+const candidatControllers = require("./controllers/candidatControllers");
 
 router.get("/candidats", candidatControllers.browse);
 router.get("/candidats/:id", candidatControllers.read);
+
+router.get("/retenu", candidatControllers.retenu);
 
 module.exports = router;

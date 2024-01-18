@@ -35,7 +35,17 @@ class CandidatManager extends AbstractManager {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all Candidats from the "Candidat" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(`select * from ${this.table} `);
+
+    // Return the array of Candidats
+    return rows;
+  }
+
+  async readselectAll() {
+    // Execute the SQL SELECT query to retrieve all Candidats from the "Candidat" table
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where selectionne = true`
+    );
 
     // Return the array of Candidats
     return rows;

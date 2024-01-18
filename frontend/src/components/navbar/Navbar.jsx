@@ -17,6 +17,7 @@ function Navbar() {
         <Link to="/guest">
           <p className="nav_p">Guest </p>
         </Link>
+
         <Link to="/candidates">
           <p className="nav_p">Candidats </p>
         </Link>
