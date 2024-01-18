@@ -7,19 +7,19 @@ function Concepts() {
       <div className="contain-text">
         <h3 className="concept_evmt">Concept de l'évènement</h3>
         <p className="paragraphe">
-          <br />
           Tu en as rêvé, deviens la nouvelle égérie de la marque.
           <br />
           Rends toi chez ton coiffeur l’Oréal pour participer avec lui à
-          l'aventure. <br /> Relooking, coloration et maquillages sont tes
-          atouts pour participer au choix de l’image que la marque recherche
-          pour ses futures campagnes publicitaires.
+          l'aventure. <br />
+          <br /> Relooking, coloration et maquillages sont tes atouts pour
+          participer au choix de l’image que la marque recherche pour ses
+          futures campagnes publicitaires.
           <br />
           Tu n’es plus qu'à un clic de la consécration et L’Oréal te veut bien.
         </p>
         <p className="paragraphe">
-          Un final sublimé par la présence de notre guest et égerie : Eva
-          Longoria
+          Un final sublimé par la présence de notre guest et égerie :{" "}
+          <strong>Eva Longoria </strong>
         </p>
       </div>
     </div>
