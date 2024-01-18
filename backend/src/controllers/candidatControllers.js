@@ -15,6 +15,20 @@ const browse = async (req, res, next) => {
   }
 };
 
+// The B of BREAD - Browse (Read All) operation
+const retenu = async (req, res, next) => {
+  try {
+    // Fetch all Candidats from the database
+    const Candidats = await tables.Candidat.readselectAll();
+
+    // Respond with the Candidats in JSON format
+    res.json(Candidats);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
@@ -64,4 +78,5 @@ module.exports = {
   // edit,
   add,
   // destroy,
+  retenu,
 };

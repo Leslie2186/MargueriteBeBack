@@ -25,10 +25,7 @@ const router = createBrowserRouter([
         path: "/histoire",
         element: <Histoire />,
       },
-      {
-        path: "/concept",
-        element: <Concept />,
-      },
+
       {
         path: "/candidates",
         element: <CardsAll />,
@@ -48,7 +45,6 @@ const router = createBrowserRouter([
             .then((response) => response.data)
             .catch((err) => console.error(err));
         },
-
       },
       {
         path: "/votes",
