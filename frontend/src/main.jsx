@@ -10,6 +10,7 @@ import PageInscription from "./pages/PageInscription";
 import Home from "./pages/home/Home";
 import CardsId from "./pages/CardsId/CardsId";
 import Admin from "./pages/Admin/Admin";
+import Eva from "./components/Eva/Eva";
 import CardsAll from "./pages/CardsAll/CardsAll";
 
 const router = createBrowserRouter([
@@ -26,8 +27,9 @@ const router = createBrowserRouter([
         element: <Histoire />,
       },
       {
-        path: "/concept",
-        element: <Concept />,
+
+        path: "/guest",
+        element: <Eva />,
       },
       {
         path: "/candidates",
@@ -48,7 +50,6 @@ const router = createBrowserRouter([
             .then((response) => response.data)
             .catch((err) => console.error(err));
         },
-
       },
       {
         path: "/votes",
