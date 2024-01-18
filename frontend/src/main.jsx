@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import connexion from "./services/connexion";
 import App from "./App";
 import Histoire from "./pages/histoire/Histoire";
-import Concept from "./pages/Concept";
 import Votes from "./pages/Votes";
 import Login from "./pages/login/Login";
 import PageInscription from "./pages/PageInscription";
@@ -49,6 +48,7 @@ const router = createBrowserRouter([
             .then((response) => response.data)
             .catch((err) => console.error(err));
         },
+
       },
       {
         path: "/votes",
