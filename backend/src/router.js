@@ -31,8 +31,8 @@ router.get("/items/:id", itemControllers.read);
 // Route to add a new item
 router.post("/items", itemControllers.add);
 router.post("/login", authControllers.log);
-router.post("/candidat", upload.single("image"), candidatControllers.add);
 
+router.post("/candidats", upload.single("image"), candidatControllers.add);
 router.get("/candidats", candidatControllers.browse);
 router.get("/candidats/:id", candidatControllers.read);
 
