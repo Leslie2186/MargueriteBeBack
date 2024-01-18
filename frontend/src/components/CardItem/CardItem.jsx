@@ -18,6 +18,14 @@ function CardItem({ data }) {
         <h2 className="CardItem_h2">{data.name}</h2>
         <h2 className="CardItem_h2">{data.prenom}</h2>
         <h2 className="CardItem_h2">{data.age}</h2>
+        <div className="button">
+          <button type="button" className="greenButton">
+            Acceptée
+          </button>
+          <button type="button" className="redButton">
+            Refusée
+          </button>
+        </div>
       </div>
     </div>
   );
