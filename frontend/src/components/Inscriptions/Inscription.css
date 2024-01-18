@@ -1,10 +1,14 @@
-.Inscriptionform {
+.Inscription {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 200px;
+}
+
+.Inscriptionform {
   margin-left: 20px;
   margin-right: 20px;
   border: none;
-  margin-bottom: 10%;
+  margin-top: 30px;
 }
 
 .classinput,
@@ -14,12 +18,21 @@
   margin-right: 25vw;
   margin-top: 1.2vw;
   border-radius: 0.5vw;
-  height: 2vw;
   background-color: #fae7c0;
   border-color: white;
   color: rgba(0, 0, 0, 0.5);
   border: none;
-  padding-left: 15px;
+  padding: 8px 15px;
+}
+
+.classinput {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.classtextarea {
+  width: 313px;
+  margin-bottom: 10px;
 }
 
 .classtextarea {
@@ -31,12 +44,15 @@
   border-radius: 0.5vw;
   background-color: #fae7c0;
   border-color: white;
-  /* text-align: left; */
-  /* vertical-align: top; */
   align-items: flex-start;
   color: rgba(0, 0, 0, 0.5);
   border: none;
   padding-left: 15px;
+}
+
+.containbutsubmit {
+  display: flex;
+  justify-content: center;
 }
 
 .classbut {
@@ -44,5 +60,14 @@
   font-size: 15px;
   color: rgba(0, 0, 0, 0.5);
   width: 170px;
-  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .classinput {
+    width: 500px;
+  }
+
+  .classtextarea {
+    width: 513px;
+  }
 }
