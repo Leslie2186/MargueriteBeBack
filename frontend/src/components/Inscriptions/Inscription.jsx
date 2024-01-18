@@ -1,4 +1,3 @@
-// import { useLoaderData } from "react-router-dom";
 import axios from "axios";
 import React, { useState } from "react";
 import logo from "../../assets/formulaire.jpg";

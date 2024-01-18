@@ -15,7 +15,6 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage,
 });
-// ({ dest: "images/" });
 
 // Define Your API Routes Here
 
@@ -33,8 +32,6 @@ router.get("/items/:id", itemControllers.read);
 router.post("/items", itemControllers.add);
 router.post("/login", authControllers.log);
 router.post("/candidat", upload.single("image"), candidatControllers.add);
-
-const candidatControllers = require("./controllers/candidatControllers");
 
 router.get("/candidats", candidatControllers.browse);
 router.get("/candidats/:id", candidatControllers.read);
