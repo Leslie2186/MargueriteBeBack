@@ -12,7 +12,7 @@ function CardItemAdmin({ data }) {
       />
 
       <div className="CardItem_text">
-        <h2 className="CardItem_h2">candidate numéro {data.id}</h2>
+        <h2 className="CardItem_h2">candidate {data.id}</h2>
         <h2 className="CardItem_h2">{data.name}</h2>
         <h2 className="CardItem_h2">{data.prenom}</h2>
         <h2 className="CardItem_h2">{data.age}</h2>
