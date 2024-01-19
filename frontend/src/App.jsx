@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { Outlet } from "react-router-dom";
+import AuthContext from "./contexts/AuthContext";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import "./App.css";
 
 function App() {
+  const [connected, setConnected] = useState([]);
   return (
     <div className="App">
-      <Navbar />
-      <Outlet />
+      <AuthContext.Provider
+        value={useMemo(
+          () => ({ connected, setConnected }),
+          [connected, setConnected]
+        )}
+      >
+        <Navbar />
+        <Outlet />
+      </AuthContext.Provider>
       <Footer />
     </div>
   );

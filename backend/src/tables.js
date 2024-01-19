@@ -6,8 +6,9 @@
 const ItemManager = require("./models/ItemManager");
 const CandidatManager = require("./models/CandidatManager");
 const AuthManager = require("./models/AuthManager");
+const VotantManager = require("./models/VotantManager");
 
-const managers = [ItemManager, CandidatManager, AuthManager];
+const managers = [ItemManager, CandidatManager, AuthManager, VotantManager];
 
 // Create an empty object to hold data managers for different tables
 const tables = {};

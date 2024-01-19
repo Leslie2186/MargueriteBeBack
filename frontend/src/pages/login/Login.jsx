@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import AuthContext from "../../contexts/AuthContext";
 import LoginInput from "../../components/loginInput/LoginInput";
 import "./Login.css";
 
@@ -11,6 +12,7 @@ const user = {
 
 function LogIn() {
   const [credentials, setCredentials] = useState(user);
+  const { setConnected } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleCredentials = (event) => {
@@ -28,10 +30,12 @@ function LogIn() {
         credentials
       );
       if (valid) {
+        setConnected(valid.data.connected);
+
         const validation = document.querySelector(".validation");
         validation.style.display = "block";
         setTimeout(() => {
-          navigate("/");
+          navigate("/candidats");
         }, 3000);
       } else {
         setTimeout(() => {

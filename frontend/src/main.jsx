@@ -5,7 +5,7 @@ import connexion from "./services/connexion";
 import App from "./App";
 import Candidats from "./pages/Candidats";
 import Histoire from "./pages/histoire/Histoire";
-import Votes from "./pages/Votes";
+import Voter from "./pages/voter/Voter";
 import Login from "./pages/login/Login";
 import PageInscription from "./pages/PageInscription";
 import CardsAll from "./pages/CardsAll/CardsAll";
@@ -31,8 +31,8 @@ const router = createBrowserRouter([
         element: <Candidats />,
       },
       {
-        path: "/votes",
-        element: <Votes />,
+        path: "/voter",
+        element: <Voter />,
       },
       {
         path: "/login",
