@@ -8,47 +8,54 @@ function Inscription() {
     nom: "",
     prenom: "",
     age: "",
-    mail: "",
     region: "",
-    adresseSalon: "",
+    adresse_salon: "",
+    photo: "",
+    photo2: "",
+    email: "",
     password: "",
+    selectionne: 0,
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleImageChange = (e) => {
-    setFormData({ ...formData, image: e.target.files[0] });
+  const handleInputChange = (event) => {
+    setFormData((previousState) => ({
+      ...previousState,
+      [event.target.name]: event.target.value,
+    }));
   };
 
   const handleUpload = async (e) => {
     e.preventDefault();
 
-    const form = new FormData();
-    for (const key in formData) {
-      if (Object.prototype.hasOwnProperty.call(formData, key)) {
-        form.append(key, formData[key]);
-      }
-    }
-
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/candidats`,
-        form,
-        { headers: { "Content-Type": "multipart/form-data" } }
+        formData
       );
 
-      console.info(response);
+      if (response.data) {
+        const validation = document.querySelector(".validation");
+        validation.style.display = "block";
+      }
     } catch (error) {
-      console.error(error);
+      const errorconnexion = document.querySelector(".errorconnexion");
+      errorconnexion.style.display = "block";
+      setFormData(formData);
     }
   };
 
   return (
     <div>
       <img className="concept_img" src={logo} alt="L'Oréal" />
+      <div className="contain-validation-errorconnexion">
+        <p style={{ display: "none" }} className="validation">
+          Vos informations ont bien été enregistrées, merci de votre
+          participation.
+        </p>
+        <p style={{ display: "none" }} className="errorconnexion">
+          Vos informations n'ont pas été enregistrées.
+        </p>
+      </div>
       <div className="Inscription">
         <form onSubmit={handleUpload} className="Inscriptionform">
           <input
@@ -80,10 +87,10 @@ function Inscription() {
           />
           <input
             className="classinput"
-            type="text"
-            name="mail"
+            type="email"
+            name="email"
             placeholder="MAIL"
-            value={formData.mail}
+            value={formData.email}
             onChange={handleInputChange}
             required
           />
@@ -99,9 +106,9 @@ function Inscription() {
           <input
             className="classinput"
             type="text"
-            name="adresseSalon"
+            name="adresse_salon"
             placeholder="ADRESSE SALON"
-            value={formData.adresseSalon}
+            value={formData.adresse_salon}
             onChange={handleInputChange}
             required
           />
@@ -116,11 +123,11 @@ function Inscription() {
           />
           <input
             className="classtextarea"
-            type="file"
-            accept="image/png, image/jpeg"
-            onChange={handleImageChange}
-            name="image"
+            type="text"
+            name="photo"
             placeholder="TA PHOTOGRAPHIE"
+            value={formData.photo}
+            onChange={handleInputChange}
             required
           />
           <div className="containbutsubmit">

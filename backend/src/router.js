@@ -34,6 +34,7 @@ router.get("/items/:id", itemControllers.read);
 router.post("/items", itemControllers.add);
 router.post("/login", authControllers.log);
 router.post("/votant", votantControllers.add);
+router.post("/candidats", candidatControllers.add);
 
 router.get("/candidats", candidatControllers.browse);
 router.get("/candidats/:id", candidatControllers.read);
