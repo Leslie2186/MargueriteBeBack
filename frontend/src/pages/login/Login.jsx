@@ -35,7 +35,7 @@ function LogIn() {
         const validation = document.querySelector(".validation");
         validation.style.display = "block";
         setTimeout(() => {
-          navigate("/candidats");
+          navigate("/candidates");
         }, 3000);
       } else {
         setTimeout(() => {
