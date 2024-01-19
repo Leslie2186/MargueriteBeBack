@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import connexion from "./services/connexion";
 import App from "./App";
 import Histoire from "./pages/histoire/Histoire";
-import Votes from "./pages/Votes";
+import Voter from "./pages/voter/Voter";
 import Login from "./pages/login/Login";
 import PageInscription from "./pages/PageInscription";
 import Home from "./pages/home/Home";
@@ -51,8 +51,8 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/votes",
-        element: <Votes />,
+        path: "/voter",
+        element: <Voter />,
       },
       {
         path: "/login",
