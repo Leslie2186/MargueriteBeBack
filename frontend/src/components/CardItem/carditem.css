@@ -11,6 +11,7 @@
 
 .CardItem_text {
   position: absolute;
+  text-align: left;
   top: 70%;
   left: 5%;
   color: white;

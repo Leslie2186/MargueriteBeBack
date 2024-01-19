@@ -12,8 +12,19 @@ class CandidatManager extends AbstractManager {
   async create(Candidat) {
     // Execute the SQL INSERT query to add a new Candidat to the "Candidat" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title) values (?)`,
-      [Candidat.title]
+      `insert into ${this.table} (nom, prenom, age, region, adresse_salon, photo, photo2, email, password, selectionne ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        Candidat.nom,
+        Candidat.prenom,
+        Candidat.age,
+        Candidat.region,
+        Candidat.adresse_salon,
+        Candidat.photo,
+        Candidat.photo2,
+        Candidat.email,
+        Candidat.password,
+        Candidat.selectionne,
+      ]
     );
 
     // Return the ID of the newly inserted Candidat
@@ -35,7 +46,17 @@ class CandidatManager extends AbstractManager {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all Candidats from the "Candidat" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(`select * from ${this.table} `);
+
+    // Return the array of Candidats
+    return rows;
+  }
+
+  async readselectAll() {
+    // Execute the SQL SELECT query to retrieve all Candidats from the "Candidat" table
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where selectionne = true`
+    );
 
     // Return the array of Candidats
     return rows;
